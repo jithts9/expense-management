@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/userRoutes.js";
 import authRouter from "./routes/authRouter.js";
+import expenseRouter from "./routes/expsenseRouter.js";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.listen(5000, () => {
 
 app.use("/user", userRouter);
 app.use("/auth", authRouter);
+app.use('/api/expense', expenseRouter)
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
